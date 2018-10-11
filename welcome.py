@@ -26,7 +26,7 @@ def signIn(channel):
         display.lcd_display_string_right(timestamp, 1)
         display.lcd_display_string("Sign In", 3)
         display.lcd_display_string("Please swipe card now", 4)
-        time.sleep(.95
+        time.sleep(.95)
 
 
 GPIO.setmode(GPIO.BOARD)
