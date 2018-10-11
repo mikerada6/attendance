@@ -10,7 +10,7 @@ import RPi.GPIO as GPIO
 def signIn(channel):
     print("Sign In")
     display = lcddriver.lcd()
-    display.clear()
+    display.lcd_clear()
     display.lcd_display_string_right("Sign In", 1)
     display.lcd_display_string_right("Please swipe card now", 4)
 
