@@ -98,6 +98,24 @@ class lcd:
       self.lcd_write_four_bits(mode | (cmd & 0xF0))
       self.lcd_write_four_bits(mode | ((cmd << 4) & 0xF0))
 
+      # put string function
+   def lcd_display_string_right(self, string, line):
+       temp=""
+       for i in range(24-len(string)):
+           temp+=" "
+       string=temp+string
+       if line == 1:
+           self.lcd_write(0x80)
+       if line == 2:
+           self.lcd_write(0xC0)
+       if line == 3:
+           self.lcd_write(0x94)
+       if line == 4:
+           self.lcd_write(0xD4)
+
+       for char in string:
+           self.lcd_write(ord(char), Rs)
+
    # put string function
    def lcd_display_string(self, string, line):
       if line == 1:
