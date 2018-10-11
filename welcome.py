@@ -1,9 +1,15 @@
 import lcddriver
 import time
 import datetime
+import os
 
 display = lcddriver.lcd()
 print("Writing to display")
+DIR_PATH = os.path.dirname(os.path.realpath(__file__))
+cfgfile = DIR_PATH+"/"+"attendance.ini"
+exists = os.path.isfile('/path/to/file')
+if not exists:
+    import configWriter
 try:
     display.lcd_display_string("No time to waste", 1)
     display.lcd_display_string_right("abcdefghijklmnopqrstuvwxyz",2)
