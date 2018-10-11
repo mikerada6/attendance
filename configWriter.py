@@ -2,8 +2,9 @@ import ConfigParser
 import os
 Config = ConfigParser.ConfigParser()
 # lets create that config file for next time...
+DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 dir_path = os.path.dirname(os.path.realpath(__file__))
-cfgfile = open(map.DIR_PATH+"/"+"attendance.ini",'w')
+cfgfile = open(DIR_PATH+"/"+"attendance.ini",'w')
 
 # add the settings to the structure of the file, and lets write it out...
 Config.add_section('Software')
