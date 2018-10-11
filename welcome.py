@@ -4,7 +4,7 @@ import datetime
 import os
 import configparser
 import requests
-import RPIO as GPIO
+import RPi.GPIO as GPIO
 
 
 def signIn(channel):
@@ -31,7 +31,7 @@ teacher = config['ROOM']['Teacher']
 room = config['ROOM']['Room']
 channel=37
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_interrupt_callback(channel, signIn, bouncetime=200)
+GPIO.add_event_detect(channel, GPIO.FALLING, callback=signIn, bouncetime=300)
 try:
     while True:
         currentDT = datetime.datetime.now()
