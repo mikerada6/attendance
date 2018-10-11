@@ -35,7 +35,7 @@ display = lcddriver.lcd()
 print("Writing to display")
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 cfgfile = DIR_PATH+"/"+"attendance.ini"
-exists = os.path.isfile('/path/to/file')
+exists = os.path.isfile(cfgfile)
 if not exists:
     import configWriter
 config = configparser.ConfigParser()
