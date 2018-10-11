@@ -13,7 +13,10 @@ if not exists:
 try:
     display.lcd_display_string("No time to waste", 1)
     display.lcd_display_string_right("abcdefghijklmnopqrstuvwxyz",2)
-    display.lcd_display_string_right("Michael",3)
+    buttons1 = ["Sign","Sign","","Teac"]
+    buttons2 = ["In","Out","Quit","her"]
+    display.lcd_display_string_buttons(buttons1,3)
+    display.lcd_display_string_buttons(buttons2,4)
     time.sleep(600)
 except KeyboardInterrupt: # If there is a KeyboardInterrupt (when you press ctrl+c), exit the program and cleanup
     print("Cleaning up!")
