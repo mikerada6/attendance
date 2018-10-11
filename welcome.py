@@ -9,6 +9,7 @@ import RPi.GPIO as GPIO
 contMainMenu=True
 
 def signIn(channel):
+    global contMainMenu
     contMainMenu=False
     print("Sign In")
     display = lcddriver.lcd()
