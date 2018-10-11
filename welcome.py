@@ -4,10 +4,13 @@ import datetime
 import os
 import configparser
 import requests
+import thread
 import RPi.GPIO as GPIO
 
+contMainMenu=True
 
 def signIn(channel):
+    contMainMenu=False
     print("Sign In")
     display = lcddriver.lcd()
     display.lcd_clear()
@@ -33,7 +36,7 @@ channel=37
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.add_event_detect(channel, GPIO.FALLING, callback=signIn, bouncetime=300)
 try:
-    while True:
+    while contMainMenu:
         currentDT = datetime.datetime.now()
         timestamp = str(currentDT.month)+"/"+str(str(currentDT.day))+"/"+str(currentDT.year)+"  " + format(currentDT.hour%12, '02d')+":"+format(currentDT.minute, '02d')+":"+format(currentDT.second, '02d')
         display.lcd_display_string_right(timestamp, 1)
