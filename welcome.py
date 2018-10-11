@@ -13,8 +13,8 @@ if not exists:
 try:
     display.lcd_display_string("No time to waste", 1)
     display.lcd_display_string_right("abcdefghijklmnopqrstuvwxyz",2)
-    buttons1 = ["Sign","Sign","","Teac"]
-    buttons2 = ["In","Out","Quit","her"]
+    buttons1 = ["Sign","","","Sign"]
+    buttons2 = ["Out","","","In"]
     display.lcd_display_string_buttons(buttons1,3)
     display.lcd_display_string_buttons(buttons2,4)
     time.sleep(600)
