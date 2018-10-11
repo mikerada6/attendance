@@ -19,7 +19,7 @@ room = config['ROOM']['Room']
 try:
     while True:
         currentDT = datetime.datetime.now()
-        timestamp = str(currentDT.month)+"/"+str(str(currentDT.day))+"/"+str(currentDT.year)+"  " + str(currentDT.hour)+":"+str(currentDT.minute)+":"+str(currentDT.second)
+        timestamp = str(currentDT.month)+"/"+str(str(currentDT.day))+"/"+str(currentDT.year)+"  " + format(currentDT.hour%12, '02d')+":"+format(currentDT.minute, '02d')+":"+format(currentDT.second, '02d')
         display.lcd_display_string_right(timestamp, 1)
         display.lcd_display_string(teacher + "-" + room, 2)
         buttons1 = ["Sign","","","Sign"]
