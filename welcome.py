@@ -4,7 +4,7 @@ import datetime
 import os
 import configparser
 import requests
-import RPi.GPIO as GPIO
+import RPIO as GPIO
 
 
 def signIn(channel):
