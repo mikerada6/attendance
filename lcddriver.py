@@ -100,14 +100,15 @@ class lcd:
 
       # put string function
    def lcd_display_string_right(self, string, line):
-       string = string[:23]
        temp=""
-       for i in range(24-len(string)):
-           print(str(i))
-           temp+=" "
-       print("old: " + string)
-       string=temp+string
-       print("new: " + string)
+       if len(string)>24:
+           string = string[:24]
+           for i in range(24-len(string)):
+               print(str(i))
+               temp+=" "
+           print("old: " + string)
+           string=temp+string
+           print("new: " + string)
        if line == 1:
            self.lcd_write(0x80)
        if line == 2:
@@ -122,6 +123,7 @@ class lcd:
 
    # put string function
    def lcd_display_string(self, string, line):
+      string = string[:24]
       if line == 1:
          self.lcd_write(0x80)
       if line == 2:
