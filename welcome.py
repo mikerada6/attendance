@@ -11,8 +11,9 @@ exists = os.path.isfile('/path/to/file')
 if not exists:
     import configWriter
 try:
-    display.lcd_display_string("No time to waste", 1)
-    display.lcd_display_string_right("abcdefghijklmnopqrstuvwxyz",2)
+    currentDT = datetime.datetime.now()
+    timestamp = currentDT.day+"/"
+    display.lcd_display_string(timestamp, 1)
     buttons1 = ["Sign","","","Sign"]
     buttons2 = ["Out","","","In"]
     display.lcd_display_string_buttons(buttons1,3)
