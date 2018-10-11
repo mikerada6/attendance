@@ -1,6 +1,6 @@
 import  configparser
 import os
-Config =  configparser. configparser()
+Config =  configparser.ConfigParser()
 # lets create that config file for next time...
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 dir_path = os.path.dirname(os.path.realpath(__file__))
