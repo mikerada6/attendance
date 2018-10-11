@@ -12,7 +12,7 @@ if not exists:
     import configWriter
 try:
     currentDT = datetime.datetime.now()
-    timestamp = currentDT.day+"/"
+    timestamp = str(currentDT.month)+"/"+str(str(currentDT.day))+"/"+str(currentDT.year)+"  " + str(currentDT.hour)+":"+str(currentDT.minute)
     display.lcd_display_string(timestamp, 1)
     buttons1 = ["Sign","","","Sign"]
     buttons2 = ["Out","","","In"]
