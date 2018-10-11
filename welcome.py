@@ -6,16 +6,23 @@ import configparser
 import requests
 import RPi.GPIO as GPIO
 
-contMainMenu=True
+contMainMenu=False
+contSignInMenu=False
+menus = [contSignInMenu,contMainMenu]
 
+for i in menus:
+    i=False
+contMainMenu=True
 def signIn(channel):
-    global contMainMenu
-    contMainMenu=False
-    print("Sign In")
-    display = lcddriver.lcd()
-    display.lcd_clear()
-    display.lcd_display_string_right("Sign In", 1)
-    display.lcd_display_string("Please swipe card now", 4)
+    global menus
+    for i in menus:
+        i=False
+    contSignInMenu=True
+    while contSignInMenu:
+        display = lcddriver.lcd()
+        display.lcd_clear()
+        display.lcd_display_string_right("Sign In", 1)
+        display.lcd_display_string("Please swipe card now", 4)
 
 
 GPIO.setmode(GPIO.BOARD)
