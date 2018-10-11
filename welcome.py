@@ -15,7 +15,7 @@ try:
         currentDT = datetime.datetime.now()
         timestamp = str(currentDT.month)+"/"+str(str(currentDT.day))+"/"+str(currentDT.year)+"  " + str(currentDT.hour)+":"+str(currentDT.minute)+":"+str(currentDT.second)
         display.lcd_display_string_right(timestamp, 1)
-        display.lcd_display_string("What would you like to do?", 1)
+        display.lcd_display_string("What would you like to do?", 2)
         buttons1 = ["Sign","","","Sign"]
         buttons2 = ["Out","","","In"]
         display.lcd_display_string_buttons(buttons1,3)
