@@ -100,7 +100,7 @@ class lcd:
 
       # put string function
    def lcd_display_string_right(self, string, line):
-       string = string[:24]
+       string = string[:23]
        temp=""
        for i in range(24-len(string)):
            print(str(i))
