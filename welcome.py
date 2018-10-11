@@ -4,7 +4,6 @@ import datetime
 import os
 import configparser
 import requests
-import thread
 import RPi.GPIO as GPIO
 
 contMainMenu=True
