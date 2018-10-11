@@ -18,11 +18,15 @@ def signIn(channel):
     for i in menus:
         i=False
     contSignInMenu=True
+    display = lcddriver.lcd()
+    display.lcd_clear()
     while contSignInMenu:
-        display = lcddriver.lcd()
-        display.lcd_clear()
-        display.lcd_display_string_right("Sign In", 1)
+        currentDT = datetime.datetime.now()
+        timestamp = str(currentDT.month)+"/"+str(str(currentDT.day))+"/"+str(currentDT.year)+"  " + format(currentDT.hour%12, '02d')+":"+format(currentDT.minute, '02d')+":"+format(currentDT.second, '02d')
+        display.lcd_display_string_right(timestamp, 1)
+        display.lcd_display_string("Sign In", 3)
         display.lcd_display_string("Please swipe card now", 4)
+        time.sleep(.95
 
 
 GPIO.setmode(GPIO.BOARD)
