@@ -3,6 +3,19 @@ import time
 import datetime
 import os
 import configparser
+import requests
+import RPi.GPIO as GPIO
+
+
+def signIn(channel):
+    print("Sign In")
+    display = lcddriver.lcd()
+    display.clear()
+    display.lcd_display_string_right("Sign In", 1)
+    display.lcd_display_string_right("Please swipe card now", 4)
+
+
+GPIO.setmode(GPIO.BOARD)
 
 display = lcddriver.lcd()
 print("Writing to display")
@@ -16,6 +29,9 @@ config.sections()
 config.read('attendance.ini')
 teacher = config['ROOM']['Teacher']
 room = config['ROOM']['Room']
+channel=37
+GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.add_event_callback(channel, signIn, bouncetime=200)
 try:
     while True:
         currentDT = datetime.datetime.now()
