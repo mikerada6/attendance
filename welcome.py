@@ -61,3 +61,5 @@ except KeyboardInterrupt: # If there is a KeyboardInterrupt (when you press ctrl
     print("Cleaning up!")
 finally:
     display.lcd_clear()
+    GPIO.cleanup()
+GPIO.cleanup() 
