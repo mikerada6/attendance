@@ -31,7 +31,7 @@ teacher = config['ROOM']['Teacher']
 room = config['ROOM']['Room']
 channel=37
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_callback(channel, signIn, bouncetime=200)
+GPIO.add_interrupt_callback(channel, signIn, bouncetime=200)
 try:
     while True:
         currentDT = datetime.datetime.now()
