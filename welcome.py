@@ -14,7 +14,7 @@ def signIn(channel):
     display = lcddriver.lcd()
     display.lcd_clear()
     display.lcd_display_string_right("Sign In", 1)
-    display.lcd_display_string_right("Please swipe card now", 4)
+    display.lcd_display_string("Please swipe card now", 4)
 
 
 GPIO.setmode(GPIO.BOARD)
