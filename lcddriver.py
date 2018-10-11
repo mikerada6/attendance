@@ -143,8 +143,8 @@ class lcd:
             temp = ""
             for x in range(4 - len(i)):
                 temp += " "
-        temp = temp + i
-        string += temp + "|"
+            temp = temp + i
+            string += temp + "|"
         string = string[:20]
         if line == 1:
             self.lcd_write(0x80)
