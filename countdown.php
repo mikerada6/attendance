@@ -153,7 +153,7 @@ http.onreadystatechange = function()
                     
                     return function() 
                     {
-                        var url1 = "attendance/addSwipe.php";
+                        var url1 = "addSwipe.php";
                         var params1 = "piID=8218945314&piPassword=D2E5C815E2312784454BCD43BA326&studnetId="+entry;
                         var http1 = new XMLHttpRequest();
                         http1.open("GET", url1+"?"+params1, true);
