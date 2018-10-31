@@ -29,7 +29,7 @@ $timestamp = isset($_POST['timestamp']) ? $_POST['timestamp'] : date("Y-m-d H:i:
             {
              //you're in
              try{
-             $sql1="SELECT count(*) as swipes FROM  SWIPE  WHERE studentId= :studentId AND locationId= :locationId and Date(timestamp)=Date(now());";
+             $sql1="SELECT count(*) as swipes FROM  SWIPE  WHERE studentId= :studentId AND locationId= :locationId and Date(timestamp)=Date(now()) and TIME(timestamp)>(select lastEnd from CURRENT where id=1);";
              $statement = $db -> prepare($sql1);
              $statement->execute([':studentId' => $_studentId,':locationId' => $_locationId ]);
              $count  = $statement->rowCount();

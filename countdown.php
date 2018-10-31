@@ -4,13 +4,11 @@ include_once("config.php");
 $school = isset($_POST['school']) ? $_POST['school'] : 1;
 $teacher = isset($_POST['teacher']) ? $_POST['teacher'] : 1;
     try{
-        //$sql2 = 'select * from SCHEDULE join PERIOD on PERIOD.periodId=SCHEDULE.periodId  where end>now()  and dayId = (SELECT dayId FROM CALENDAR  WHERE schoolId = :schoolId and PERIOD.teacherId= :teacherId AND DATE = DATE( NOW( ) ) )  order by end desc limit 1;';
-        //$sql2 = 'select * from SCHEDULE join PERIOD on PERIOD.periodId=SCHEDULE.periodId  where end>now() and start<now() and dayId = (SELECT dayId FROM CALENDAR  WHERE schoolId = :schoolId and PERIOD.teacherId= :teacherId AND DATE = DATE( NOW( ) ) )order by end desc limit 1;';
         $sql2 = 'SELECT * FROM  PERIOD JOIN CURRENT ON CURRENT.current = PERIOD.periodId where CURRENT.id=:schoolId AND PERIOD.teacherId= :teacherId;';
         $statement = $db -> prepare($sql2);
         $statement->execute([':schoolId' => $school,':teacherId' => $teacher ]);
         $results = $statement->fetch(PDO::FETCH_ASSOC);
-        $end =  $results["endCurrent"];
+        $end =  $results["currentEnd"];
         $periodId=$results["current"];
         $className=$results['className'];
     }
@@ -87,6 +85,7 @@ http.onreadystatechange = function()
                 
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
                 cell1.innerHTML = jsonData[i].first + " " + jsonData[i].last;
                 
                 //create a button that will allow you to mark the student as present
@@ -102,6 +101,10 @@ http.onreadystatechange = function()
                 btn2.className = "btn";
                 btn2.innerHTML = "Absent";
                 
+                var btn3 = document.createElement("button");
+                btn3.type = "button";
+                btn3.className = "btn";
+                btn3.innerHTML = "Leave Room";
                 
                 
                 //set up the background color based on the number of swipes
@@ -184,6 +187,7 @@ http.onreadystatechange = function()
                 
             cell2.appendChild(btn1);
             cell2.appendChild(btn2);
+            cell3.appendChild(btn3);
             }
         }
     };
